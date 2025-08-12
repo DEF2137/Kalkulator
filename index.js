@@ -12,8 +12,9 @@ const przycisk_modulo = document.getElementById("przycisk_%");
 const przycisk_CE = document.getElementById("przycisk_CE");
 const przycisk_C = document.getElementById("przycisk_C");
 const przycisk_usuwajacy = document.getElementById("przycisk_usuwajacy");
+const miejsca_po_przecinku = document.getElementById("miejsca_po_przecinku")
 
-const przycisk_n = document.getElementById("przycisk_n");
+const przycisk_silnia = document.getElementById("przycisk_silnia");
 const przycisk_potega = document.getElementById("przycisk_potega");
 const przycisk_pierwiastek = document.getElementById("przycisk_pierwiastek");
 const przycisk_dzielenie = document.getElementById("przycisk_dzielenie");
@@ -106,6 +107,19 @@ przycisk_pierwiastek.addEventListener("click", () => {
     operajca = "√"; 
 })
 
+przycisk_silnia.addEventListener("click", () => {
+    // pole_pamieci.textContent = `${glowne_pole_oblizcen.textContent} !`;
+    // pierwsza_czesc_obliczen = glowne_pole_oblizcen.textContent;
+    const funkcja_silni = (liczba) => {
+        if (liczba <= 1){
+            return 1;
+        }else{
+            return liczba * funkcja_silni(liczba - 1);
+        }
+    }
+    glowne_pole_oblizcen.textContent = funkcja_silni(Number(glowne_pole_oblizcen.textContent));
+})
+
 przycisk_usuwajacy.addEventListener("click", () => {
     if (glowne_pole_oblizcen.textContent.length === 1){
         glowne_pole_oblizcen.textContent = "0";
@@ -145,7 +159,3 @@ przycisk_rownosc.addEventListener("click", () => {
     pierwsza_czesc_obliczen = "";
     operajca = "";
 })
-// test
-// przycisk_9.addEventListener("click", () => {
-//     glowne_pole_oblizcen.textContent += 9 ;
-// })
