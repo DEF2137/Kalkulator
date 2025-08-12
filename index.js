@@ -101,7 +101,7 @@ przycisk_potega.addEventListener("click", () => {
 })
 
 przycisk_pierwiastek.addEventListener("click", () => {
-    pole_pamieci.textContent = `${glowne_pole_oblizcen.textContent} √`;
+    pole_pamieci.textContent = `√${glowne_pole_oblizcen.textContent}`;
     pierwsza_czesc_obliczen = glowne_pole_oblizcen.textContent;
     glowne_pole_oblizcen.textContent = 0;
     operajca = "√"; 
