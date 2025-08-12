@@ -145,7 +145,7 @@ przycisk_rownosc.addEventListener("click", () => {
     pierwsza_czesc_obliczen = "";
     operajca = "";
 })
-
+// test
 // przycisk_9.addEventListener("click", () => {
 //     glowne_pole_oblizcen.textContent += 9 ;
 // })
