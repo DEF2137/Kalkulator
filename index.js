@@ -4,6 +4,7 @@ const pole_pamieci = document.getElementById("pole_pamieci")
 
 let pierwsza_czesc_obliczen = "";
 let operajca = "";
+let czy_jest_kropka = false;
 
 
 // wszystkie przyciski
@@ -41,6 +42,8 @@ wszystkie_numeryczne.forEach( (przycisk_numeryczny) => {
     })
 })
 
+// przyciski działań
+
 przycisk_dzielenie.addEventListener("click", () => {
     pole_pamieci.textContent = `${glowne_pole_oblizcen.textContent} /`;
     pierwsza_czesc_obliczen = glowne_pole_oblizcen.textContent;
@@ -69,6 +72,59 @@ przycisk_mnozenie.addEventListener("click", () => {
     operajca = "*";
 })
 
+przycisk_modulo.addEventListener("click", () => {
+    pole_pamieci.textContent = `${glowne_pole_oblizcen.textContent} %`;
+    pierwsza_czesc_obliczen = glowne_pole_oblizcen.textContent;
+    glowne_pole_oblizcen.textContent = 0;
+    operajca = "%"; 
+})
+
+// przyciski zaawansowanych operacji
+
+przycisk_zmiana_znaku.addEventListener("click", () => {
+    glowne_pole_oblizcen.textContent = Number(glowne_pole_oblizcen.textContent) * (-1)
+})
+
+przycisk_kropka.addEventListener("click", () => {
+    if (czy_jest_kropka === false){
+        glowne_pole_oblizcen.textContent = `${glowne_pole_oblizcen.textContent}.`;
+        czy_jest_kropka = true;
+    }
+})
+
+przycisk_potega.addEventListener("click", () => {
+    pole_pamieci.textContent = `${glowne_pole_oblizcen.textContent} **`;
+    pierwsza_czesc_obliczen = glowne_pole_oblizcen.textContent;
+    glowne_pole_oblizcen.textContent = 0;
+    operajca = "**"; 
+})
+
+przycisk_pierwiastek.addEventListener("click", () => {
+    pole_pamieci.textContent = `${glowne_pole_oblizcen.textContent} √`;
+    pierwsza_czesc_obliczen = glowne_pole_oblizcen.textContent;
+    glowne_pole_oblizcen.textContent = 0;
+    operajca = "√"; 
+})
+
+przycisk_usuwajacy.addEventListener("click", () => {
+    if (glowne_pole_oblizcen.textContent.length === 1){
+        glowne_pole_oblizcen.textContent = "0";
+    }else if(glowne_pole_oblizcen.textContent !== '0'){
+        glowne_pole_oblizcen.textContent = glowne_pole_oblizcen.textContent.slice(0, -1);
+    }
+})
+
+przycisk_CE.addEventListener("click", () => {
+    glowne_pole_oblizcen.textContent = "0";
+})
+
+przycisk_C.addEventListener("click", () => {
+    glowne_pole_oblizcen.textContent = "0";
+    pole_pamieci.textContent = "";
+    operajca = "";
+    czy_jest_kropka = false;
+})
+
 przycisk_rownosc.addEventListener("click", () => {
     if (operajca === "/"){
         glowne_pole_oblizcen.textContent = Number(pierwsza_czesc_obliczen) / Number(glowne_pole_oblizcen.textContent);
@@ -78,6 +134,12 @@ przycisk_rownosc.addEventListener("click", () => {
         glowne_pole_oblizcen.textContent = Number(pierwsza_czesc_obliczen) + Number(glowne_pole_oblizcen.textContent);
     }else if (operajca === "-"){
         glowne_pole_oblizcen.textContent = Number(pierwsza_czesc_obliczen) - Number(glowne_pole_oblizcen.textContent);
+    }else if (operajca === "%"){
+        glowne_pole_oblizcen.textContent = Number(pierwsza_czesc_obliczen) % Number(glowne_pole_oblizcen.textContent);  
+    }else if (operajca === "**"){
+        glowne_pole_oblizcen.textContent = Number(pierwsza_czesc_obliczen) ** Number(glowne_pole_oblizcen.textContent);  
+    }else if (operajca === "√"){
+        glowne_pole_oblizcen.textContent = Math.pow(Number(pierwsza_czesc_obliczen), 1 / Number(glowne_pole_oblizcen.textContent));  
     }
     pole_pamieci.textContent = "";
     pierwsza_czesc_obliczen = "";
