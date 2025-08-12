@@ -1,0 +1,59 @@
+html {
+  min-height: 700px;
+  min-width: 400px;
+  background-color: rgb(129, 202, 129);
+}
+html button:hover {
+  cursor: pointer;
+}
+html body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+html body #tytul {
+  box-shadow: 5px 5px 5px red;
+  font-style: italic;
+  background-color: darksalmon;
+  border-radius: 10px;
+  padding: 2px;
+}
+html body #cialo_kalkulatora {
+  box-shadow: 5px 5px 5px red;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  background-color: lightslategray;
+}
+html body #cialo_kalkulatora #szybka {
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  width: 99%;
+  height: 100px;
+  background-color: aquamarine;
+}
+html body #cialo_kalkulatora #szybka p {
+  margin: 5px;
+}
+html body #cialo_kalkulatora #szybka #pole_pamieci {
+  color: gray;
+}
+html body #cialo_kalkulatora #klawisze {
+  display: flex;
+  justify-content: start;
+  width: 99%;
+  height: 60vh;
+  background-color: gray;
+}
+html body #cialo_kalkulatora #klawisze button {
+  font-size: 20px;
+  height: 9vh;
+  width: 13vw;
+}/*# sourceMappingURL=style.css.map */
